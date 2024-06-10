@@ -6,7 +6,7 @@
  *    - utiliser l'opérateur ternaire (if interdit)
  */
 function ternaire(a , b) {
-    let max = (a==b || a>b) ? a : b; 
+    let max = (a===b || a>b) ? a : b; 
     return max;
 }
 
