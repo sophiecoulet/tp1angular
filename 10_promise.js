@@ -7,7 +7,7 @@
 
 const sleep = () => new Promise((resolve) => {
     setTimeout(() => {
-        console.log("wait 2 sec");
+        //console.log("wait 2 sec");
     }, 2000);
 });
 sleep();
