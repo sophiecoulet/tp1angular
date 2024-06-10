@@ -14,7 +14,7 @@ function gettingStarted() {
  * Comment me tester ? 
  */
 console.log(gettingStarted());
-//$> node ./gettingStarted.js
+//$> node ./01_gettingStarted.js
 
 
 /**
