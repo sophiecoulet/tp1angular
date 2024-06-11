@@ -50,11 +50,14 @@ exemple:
 */
 
 const sortObjectByValue = (obj) => {
-  const sortable = Object.entries(obj)
-    .sort(([, a], [, b]) => a - b)
-    .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+  let sortable = {};
+  if (!(obj === undefined)) {
+    sortable = Object.entries(obj)
+      .sort(([, a], [, b]) => a - b)
+      .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+  };
   return sortable;
-};
+}
 console.log(sortObjectByValue({ "pommes": 3, "bananes": 1, "cerises": 8 }));
 
 module.exports = { countWords, sortObjectByValue };
