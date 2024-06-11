@@ -55,7 +55,7 @@ usingAwait(() => console.log("callback2"))
 
 const apiResponse = async (url) => {
     const res = await fetch(url);
-    console.log(res.json());
+    console.log(res.body);
     return res;
 }
 apiResponse("https://jsonplaceholder.typicode.com/todos/1");
