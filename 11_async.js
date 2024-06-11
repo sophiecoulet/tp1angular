@@ -12,12 +12,13 @@ const {sleep} = require("./10_promise");
  * 
  */
 const usingThen = (cb) => {
-    const myPromise = sleep();
+   /* const myPromise = sleep();
     myPromise.then((resultat) => {
-        console.log(cb);
-    });
+        cb();
+    });*/
+    sleep().then(cb);
 }
-usingThen("callback1");
+usingThen(() => console.log("callback1"))
 
 /**
  * Créez une fonction asynchrone qui attend 2 seconde puis execute le callback passé en paramètre
@@ -32,10 +33,10 @@ usingThen("callback1");
 
 const usingAwait = async (cb) => {
     const res = await sleep();
-    console.log(cb);
+    cb();
     return res;
 }
-usingAwait("callback2");
+usingAwait(() => console.log("callback2"))
 
 /**
  * Créez une fonction asynchrone qui effectue un appel api vers l'url passé en paramètre
@@ -54,7 +55,7 @@ usingAwait("callback2");
 
 const apiResponse = async (url) => {
     const res = await fetch(url);
-    console.log(res.json);
+    console.log(res.json());
     return res;
 }
 apiResponse("https://jsonplaceholder.typicode.com/todos/1");
