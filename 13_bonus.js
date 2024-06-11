@@ -20,14 +20,14 @@ ex: la pomme est rouge et la banane est jaune
  */
 
 const countWords = (sentence) => {
-  let tab = sentence.split(" ");
-  let map = new Map();
   let obj = {};
-  Object.keys(tab.reduce((obj, prop) => {
-    return (prop in obj ? ++obj[prop] : (obj[prop] = 1)), obj
-  }, obj))
-  .forEach(item => map.set(item, obj[item]));
-  return map;
+  if (!(sentence.length === 0)) {
+    let tab = sentence.split(" ");
+    Object.keys(tab.sort().reduce((obj, prop) => {
+      return (prop in obj ? ++obj[prop] : (obj[prop] = 1)), obj
+    }, obj));
+  }
+  return obj;
 };
 console.log(countWords("la pomme est rouge et la banane est jaune"));
 
@@ -50,9 +50,11 @@ exemple:
 */
 
 const sortObjectByValue = (obj) => {
-
-
+  const sortable = Object.entries(obj)
+    .sort(([, a], [, b]) => a - b)
+    .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+  return sortable;
 };
-console.log(sortObjectByValue({"pommes": 3,"bananes": 1,"cerises": 8}));
+console.log(sortObjectByValue({ "pommes": 3, "bananes": 1, "cerises": 8 }));
 
-module.exports = {countWords, sortObjectByValue};
+module.exports = { countWords, sortObjectByValue };
