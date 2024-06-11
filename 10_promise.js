@@ -7,9 +7,13 @@
 
 const sleep = () => new Promise((resolve) => {
     setTimeout(() => {
-        //console.log("wait 2 sec");
+        //resolve(console.log("fini après 2 sec"));
+        resolve();
     }, 2000);
 });
-sleep();
+const myPromise = sleep();
+/*myPromise.then((resultat) => {
+    console.log("fini après 2 sec");
+});*/
 
 module.exports = { sleep };

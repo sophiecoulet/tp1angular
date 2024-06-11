@@ -29,9 +29,7 @@ console.log(push([4,2,5,1],8));
  * ex: {a: 1, b: 2}, {c: 3, d: 4} => {a: 1, b: 2, c: 3, d: 4}
  */
 
-const merge = (obj1, obj2) => {
-    return {...obj1, ...obj2};
-}
+const merge = (obj1, obj2) => ({...obj1, ...obj2});
 console.log(merge({a: 1, b: 2},{c: 3, d: 4}));
 
 /**

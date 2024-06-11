@@ -12,10 +12,11 @@
  *  - interdiction d'utiliser slice ou splice
  */
 
-const extractFirstTwo = (array) => {
+/*const extractFirstTwo = (array) => {
     let [a,b] = array;
     return [a,b];
-}
+}*/
+const extractFirstTwo = ([a,b]) => [a,b];
 console.log(extractFirstTwo([1, 2, 3]));
 
 /**
@@ -25,10 +26,11 @@ console.log(extractFirstTwo([1, 2, 3]));
  * exemple: [1, 2, 3] => [2, 3]
  */
 
-const extractRest = (array) => {
+/*const extractRest = (array) => {
     let [,b,c] = array;
     return [b,c];
-}
+}*/
+const extractRest = ([a, ...rest]) => rest;
 console.log(extractRest([1, 2, 3]));
 
 /**
@@ -43,10 +45,11 @@ console.log(extractRest([1, 2, 3]));
  * - interdiction d'utiliser l'opérateur "." pour accéder au champ "name"
  */
 
-const extractName = (obj) => {
+/*const extractName = (obj) => {
     const {name} = obj;
     return name;
-}
+}*/
+const extractName = ({name}) => name;
 console.log(extractName({name: "toto", age: 42}));
 
 /**
@@ -60,10 +63,11 @@ console.log(extractName({name: "toto", age: 42}));
  * 
  */
 
-const removePassword = (obj) => {
+/*const removePassword = (obj) => {
     const {name} = obj;
     return {name};
-}
+}*/
+const removePassword = ({password, ...rest}) => rest;
 console.log(removePassword({name: "toto", password: "1234"}));
 
 module.exports = {extractFirstTwo, extractRest, extractName, removePassword}
